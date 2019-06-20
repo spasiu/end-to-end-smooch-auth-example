@@ -1,7 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const KEY_ID = process.env.KEY_ID || 'app_xxxxxxxxx';
-const SECRET = process.env.SECRET || 'xxxxxxxxxxxxx';
+const KEY_ID = process.env.KEY_ID || '';
+const SECRET = process.env.SECRET || '';
 
 express()
     .use(express.static('public'))

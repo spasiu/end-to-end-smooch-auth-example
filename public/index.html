@@ -9,8 +9,8 @@
 <body>
     <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const APP_ID =  urlParams.get('app_id'); || '';
-    const USER_ID = urlParams.get('user_id'); ||  '';
+    const APP_ID =  urlParams.get('app_id') || '';
+    const USER_ID = urlParams.get('user_id') ||  '';
 
     const fetchToken = (userId) => fetch(`/users/${userId}/token`)
         .then(response => response.json())
@@ -22,10 +22,10 @@
 
 
     Smooch.init({
-        appId,
+        appId: APP_ID,
         delegate: {
             onInvalidAuth: () => {
-                console.log('invalid auth');
+                console.log('re-authing');
                 return fetchToken(USER_ID);
             }
         }
